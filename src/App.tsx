@@ -11,9 +11,6 @@ import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import { BrowserRouter, Route, Routes, Outlet } from "react-router";
 import routerProvider, { NavigateToResource, CatchAllNavigate, UnsavedChangesNotifier, DocumentTitleHandler } from "@refinedev/react-router";
 import { dataProvider } from "./providers/data";
-import { Login } from "./pages/login";
-import { Register } from "./pages/register";
-import { ForgotPassword } from "./pages/forgot-password";
 import { ErrorComponent } from "./components/refine-ui/layout/error-component";
 import { Layout } from "./components/refine-ui/layout/layout";
 import { Header } from "./components/refine-ui/layout/header";
@@ -55,7 +52,7 @@ routerProvider={routerProvider}
                             meta: {label: 'Home', icon:<Home/>}
                         },
                             {
-                                name: 'subject',
+                                name: 'subjects',
                                 list: '/subjects',
                                 create: '/subjects/create',
                                 meta: {label: 'Subjects', icon: <BookOpen/>}
