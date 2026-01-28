@@ -10,7 +10,7 @@ import {
     CardTitle,
 } from "@/components/ui/card.tsx";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import {useForm} from "@refinedev/react-hook-form";
 import { classSchema } from "@/lib/schema.ts";
 import * as z from "zod";
 
@@ -37,7 +37,7 @@ import UploadWidget from "@/components/upload-widget.tsx";
 const Create = () => {
     const back = useBack();
 
-    const form = useForm<z.infer<typeof classSchema>>({
+    const form = useForm({
         resolver: zodResolver(classSchema),
         refineCoreProps: {
             resource: "classes",
@@ -141,7 +141,7 @@ const Create = () => {
                                                             }
                                                             : null
                                                     }
-                                                    onChange={(file: any, field:any) =>
+                                                    onChange={(file: any,) =>
                                                         setBannerImage(
                                                             file,
                                                             field
