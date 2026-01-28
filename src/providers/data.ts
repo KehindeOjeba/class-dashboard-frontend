@@ -1,9 +1,25 @@
 import {createDataProvider, CreateDataProviderOptions} from "@refinedev/rest";
 import {ListResponse} from "@/types";
 import {BACKEND_BASE_URL} from "@/constant";
+import {HttpError} from "@refinedev/core";
 
 if(!BACKEND_BASE_URL) throw new Error("BACKEND_BASE_URL is required");
 
+const buildhttpError = async (response: Response ):Promise<HttpError> => {
+    let message = "Request failed.";
+
+    try{
+        const payload = (await response.json()) as{message?: string}
+
+        if(payload?.message)message = payload.message;
+    } catch{
+        //ignore errors
+    }
+    return{
+        message,
+        statusCode: response.status
+    }
+}
 const options: CreateDataProviderOptions = {
     getList: {
         getEndpoint: ({resource}) => resource,
@@ -25,11 +41,13 @@ buildQueryParams: async ({ resource, pagination, filters}) => {
     return params;
 },
         mapResponse: async (response) => {
+           if(!response.ok) throw await buildhttpError(response);
             const payload: ListResponse = await response.clone().json();
             return payload.data ?? [];
         },
 
         getTotalCount: async(response) =>{
+            if(!response.ok) throw await buildhttpError(response);
             const payload: ListResponse = await response.clone().json();
             return payload.pagination?.total ?? payload.data?.length ?? 0;
         }
