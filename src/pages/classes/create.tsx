@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card.tsx";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {useForm} from "@refinedev/react-hook-form";
-import { classSchema } from "@/lib/schema.ts";
+import { classSchema } from "@/lib/schema";
 import * as z from "zod";
 
 import {
