@@ -1,7 +1,7 @@
 import { CreateView } from "@/components/refine-ui/views/create-view.tsx";
 import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb.tsx";
 import { Button } from "@/components/ui/button.tsx";
-import { useBack } from "@refinedev/core";
+import {useBack, useList} from "@refinedev/core";
 import { Separator } from "@/components/ui/separator.tsx";
 import {
     Card,
@@ -33,6 +33,7 @@ import {
 import { Textarea } from "@/components/ui/textarea.tsx";
 import { Loader2 } from "lucide-react";
 import UploadWidget from "@/components/upload-widget.tsx";
+import {Subject, User} from "@/types";
 
 const Create = () => {
     const back = useBack();
@@ -49,25 +50,38 @@ const Create = () => {
         handleSubmit,
         formState: { errors, isSubmitting },
         control,
+        refineCore: {onFinish}
     } = form;
 
     const onSubmit = async (values: z.infer<typeof classSchema>) => {
         try {
-            console.log(values);
+          await onFinish(values);
         } catch (error) {
             console.error("Error creating class:", error);
         }
     };
 
-    const teachers = [
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Jane Doe" },
-    ];
+const {query: subjectQuery} = useList<Subject>({
+    resource: 'subjects',
+    pagination: {
+        pageSize: 100
+    }
+})
+    console.log(subjectQuery,'hereeee');
+const {query: teachersQuery} = useList<User>({
+    resource: 'users',
+    filters: [{
+        field: 'role', operator: 'eq', value: 'teacher'
+    },],
+    pagination: {
+        pageSize: 100
+    }
+})
+const subjects = subjectQuery?.data?.data ?? [];
+const subjectLoading = subjectQuery.isLoading;
 
-    const subjects = [
-        { id: 1, name: "Math", code: "MATH" },
-        { id: 2, name: "English", code: "ENG" },
-    ];
+const teachers = teachersQuery?.data?.data ?? [];
+const teacherLoading = teachersQuery?.isLoading;
 
     const bannerPublicId = form.watch("bannerCldPubId");
 
@@ -207,6 +221,7 @@ const Create = () => {
                                                         field.value?.toString() ??
                                                         ""
                                                     }
+                                                    disabled={subjectLoading}
                                                 >
                                                     <FormControl>
                                                         <SelectTrigger className="w-full">
@@ -263,6 +278,7 @@ const Create = () => {
                                                         field.value?.toString() ??
                                                         ""
                                                     }
+                                                    disabled={teacherLoading}
                                                 >
                                                     <FormControl>
                                                         <SelectTrigger className="w-full">
