@@ -7,6 +7,7 @@ import {Badge} from "@/components/ui/badge.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {AdvancedImage} from '@cloudinary/react'
+
 import {bannerPhoto} from "@/lib/cloudinary.ts";
 
 const Show = () => {
@@ -44,7 +45,7 @@ const Show = () => {
     subject,
     teacher,
     department,
-   } = classDetails
+    } = classDetails
    return (
         <ShowView className='class-view class-show' >
 <ShowViewHeader resource='classes' title='Class Details'/>
