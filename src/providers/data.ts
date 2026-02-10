@@ -71,7 +71,7 @@ buildQueryParams: async ({ resource, pagination, filters}) => {
         mapResponse: async (response) => {
             const json: GetOneResponse = await response.json();
 
-            return json.data ?? [];
+            return json.data ?? {};
         }
     }
 }
