@@ -413,25 +413,25 @@ const DepartmentShow = () => {
                 </CardContent>
             </Card>
 
-            <div className="grid gap-6 lg:grid-cols-2">
-                <Card className="hover:shadow-md transition-shadow">
-                    <CardHeader className="flex flex-row items-center justify-between">
-                        <CardTitle>Teachers</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <DataTable table={teachersTable} paginationVariant="simple" />
-                    </CardContent>
-                </Card>
+            {/*<div className="grid gap-6 lg:grid-cols-2">*/}
+            {/*    <Card className="hover:shadow-md transition-shadow">*/}
+            {/*        <CardHeader className="flex flex-row items-center justify-between">*/}
+            {/*            <CardTitle>Teachers</CardTitle>*/}
+            {/*        </CardHeader>*/}
+            {/*        <CardContent>*/}
+            {/*            <DataTable table={teachersTable} paginationVariant="simple" />*/}
+            {/*        </CardContent>*/}
+            {/*    </Card>*/}
 
-                <Card className="hover:shadow-md transition-shadow">
-                    <CardHeader className="flex flex-row items-center justify-between">
-                        <CardTitle>Students</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <DataTable table={studentsTable} paginationVariant="simple" />
-                    </CardContent>
-                </Card>
-            </div>
+            {/*    <Card className="hover:shadow-md transition-shadow">*/}
+            {/*        <CardHeader className="flex flex-row items-center justify-between">*/}
+            {/*            <CardTitle>Students</CardTitle>*/}
+            {/*        </CardHeader>*/}
+            {/*        <CardContent>*/}
+            {/*            <DataTable table={studentsTable} paginationVariant="simple" />*/}
+            {/*        </CardContent>*/}
+            {/*    </Card>*/}
+            {/*</div>*/}
         </ShowView>
     );
 };
