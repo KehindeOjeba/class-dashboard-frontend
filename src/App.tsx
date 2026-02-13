@@ -96,15 +96,15 @@ function App() {
                                         icon: <Users />,
                                     },
                                 },
-                                {
-                                    name: "enrollments",
-                                    list: "/enrollments/create",
-                                    create: "/enrollments/create",
-                                    meta: {
-                                        label: "Enrollments",
-                                        icon: <ClipboardCheck />,
-                                    },
-                                },
+                                // {
+                                //     name: "enrollments",
+                                //     list: "/enrollments/create",
+                                //     create: "/enrollments/create",
+                                //     meta: {
+                                //         label: "Enrollments",
+                                //         icon: <ClipboardCheck />,
+                                //     },
+                                // },
                                 {
                                     name: "classes",
                                     list: "/classes",
