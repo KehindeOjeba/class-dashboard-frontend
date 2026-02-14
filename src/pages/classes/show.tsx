@@ -221,19 +221,15 @@ const ClassesShow = () => {
                 <Separator />
 
                 {/* Join Class Section */}
-                <div className="join">
-                    <h2>🎓 Join Class</h2>
+                {/*<div className="join">*/}
+                {/*    <h2>🎓 Join Class</h2>*/}
 
-                    <ol>
-                        <li>Ask your teacher for the invite code.</li>
-                        <li>Click on &quot;Join Class&quot; button.</li>
-                        <li>Paste the code and click &quot;Join&quot;</li>
-                    </ol>
-                </div>
-
-                <Button size="lg" className="w-full">
-                    Join Class
-                </Button>
+                {/*    <ol>*/}
+                {/*        <li>Ask your teacher for the invite code.</li>*/}
+                {/*        <li>Click on &quot;Join Class&quot; button.</li>*/}
+                {/*        <li>Paste the code and click &quot;Join&quot;</li>*/}
+                {/*    </ol>*/}
+                {/*</div>*/}
             </Card>
 
             <Card className="hover:shadow-md transition-shadow">
