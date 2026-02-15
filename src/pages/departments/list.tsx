@@ -139,16 +139,7 @@ const DepartmentsList = () => {
                 <p>Quick access to essential metrics and management tools.</p>
 
                 <div className="actions-row">
-                    <div className="search-field">
-                        <Search className="search-icon" />
-                        <Input
-                            type="text"
-                            placeholder="Search by name or code..."
-                            className="pl-10 w-full"
-                            value={searchQuery}
-                            onChange={(event) => setSearchQuery(event.target.value)}
-                        />
-                    </div>
+
                     <CreateButton resource="departments" />
                 </div>
             </div>
